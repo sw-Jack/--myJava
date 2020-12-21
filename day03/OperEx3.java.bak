@@ -1,0 +1,10 @@
+public class OperEx3 {
+	public static void main(String[] args) {
+		int i = 12; // i∞° n¿œ ∂ß,
+		int j = i << 2; // j = i * (2^n)
+		int k = i >> 2; // j = i * (2^-n)
+		int m = i >>> 2; 
+
+		System.out.println("i = " + i + ", j = " + j + ", m = " + k + ", m = " + m);
+	}
+}
