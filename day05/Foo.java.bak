@@ -1,0 +1,6 @@
+public class Foo {
+public static int main(String[] args){
+	System.out.println("Hello JAVA");
+	return 0;
+	}
+}
