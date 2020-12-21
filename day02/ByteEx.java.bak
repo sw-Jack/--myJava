@@ -1,0 +1,9 @@
+public class ByteEx {
+	public static void main(String[] args) {
+		byte bb = 128; // byte : -128 ~ 127
+
+		// 자바에서는 초기화할 때 그 자료의 표현 범위를 초과할 수 없다.
+		bb++; // bb = bb + 1; // bb += 1;
+		System.out.println("byte bb = " + bb);
+	}
+}

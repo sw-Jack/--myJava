@@ -1,0 +1,7 @@
+public class shortEx {
+	public static void main(String[] args) {
+		short s;	// 변수의 선언
+
+		System.out.println("short s = " + s);	// 에러 발생
+	}
+}

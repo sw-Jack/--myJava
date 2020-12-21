@@ -1,0 +1,10 @@
+public class FloatEx {
+	public static void main(String[] args) {
+		float var1, var2;
+		var1 = 3.4f;
+		var2 = 55.55F;	// float형은 반드시 숫자 끝에 f 명시
+
+		System.out.println("var1의 값 : " + (double)var1);
+		System.out.println("var2의 값 : " + var2);
+	}
+}
