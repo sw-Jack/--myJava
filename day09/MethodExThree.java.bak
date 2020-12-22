@@ -1,0 +1,18 @@
+public class MethodExThree { 
+	int var; // 멤버 필드
+	// 생성자
+	// 메서드
+	public void setVar(int var) {
+		this.var = var;
+	}
+	public int getVar() {
+		return var;
+	}
+	public static void main(String[] args) {
+		MethodExThree me = new MethodExThree();
+		me.setVar(1000);
+		System.out.println("var : " + me.getVar());
+	}
+}
+
+// - 전역 변수와 지역 변수가 겹치는 영역에서는 지역 변수가 우선한다. 그럼 전역 변수를 이야기하려면???
