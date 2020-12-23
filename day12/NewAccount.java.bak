@@ -1,0 +1,9 @@
+public class NewAccount extends Account {
+	// 멤버 
+	private String pass;
+	// 생성자
+	public NewAccount() { }
+	public NewAccount(String name, String pass) {
+		super(name);
+		this.pass = pass;
+	}
