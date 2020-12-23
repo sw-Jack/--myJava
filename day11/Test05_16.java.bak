@@ -1,0 +1,8 @@
+import java.io.*;
+/**
+   선택정렬
+*/
+public class Test05_16 {
+   public static void main(String[] ar)throws IOException{
+      BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+      
