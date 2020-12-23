@@ -1,0 +1,12 @@
+// static inner 클래스 예제
+public class OuterEx {
+	public static class InnerEx {
+		static int x = 10;
+		public static void main(String[] args) {
+			OuterEx.InnerEx inner = new OuterEx.InnerEx();
+			System.out.println("inner.x : " + inner.x);
+			System.out.println("inner.x : " + OuterEx.InnerEx.x);
+		}
+	}
+}
+// 실행하려면 "java OuterEx$InnerEx"
