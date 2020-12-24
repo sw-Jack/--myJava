@@ -1,0 +1,35 @@
+// Vector 클래스 실습
+// vector : 무한 데이터 입력 받기
+// object가 무한 배열로 추가 가능. 동일한 클래스 내에서 효율적임.
+import java.util.*;
+class AA {
+	// 멤버변수
+	int a;
+	// 생성자 
+	AA(int a) {
+		this.a = a;
+	}
+}
+public class VectorEx {
+	public static void main(String[] args) {
+		Vector vc = new Vector();
+		vc.add(new AA(10));	
+		vc.add(new AA(20));
+		vc.add(new AA(30));
+		vc.add(new AA(10));
+		vc.add(new AA(40));
+		vc.add(new AA(50));
+		vc.add(1, new AA(15));
+	
+		for(int i=0; i<vc.size(); i++) {
+			AA ap = (AA)vc.elementAt(i);
+			System.out.printl(ap.a);
+		}
+
+		vc.removeElementAt(4);	// 인덱스 4 내용 삭제
+		for(int i=0; i<vc.size(); i++) {
+			AA ap = (AA)vc.elementAt(i);
+			System.out.println("지운 후 : " + ap.a);
+		}
+	}
+}
