@@ -1,0 +1,9 @@
+// String 클래스 실습
+public class StringEx2 {
+	public static void main(String[] args) {
+		String str = new String();
+		str += "Hello";
+		str += " Java";
+		System.out.println("str : " + str);
+	}
+}
