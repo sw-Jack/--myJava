@@ -1,0 +1,19 @@
+/**
+	싱글톤 : Singleton = 객체를 하나만. 어디서든 접근 가능. 그러나 하나를 동시에 여럿이 접근은 불가능
+*/
+public class MySingleton {
+	// 멤버
+	private static MySingleton instance;
+	// 생성자
+	private MySingleton() {
+	}
+	// 메서드
+	public static MySingleton getInstance() {
+		if(instance == null) {
+			synchronized(MySingleton.class) {
+				instance = new MySingleton();
+			}
+		}
+		return instance;
+	}
+}
