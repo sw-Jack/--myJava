@@ -1,0 +1,10 @@
+// Random 클래스 실습
+import java.util.*; // java.util.Random;
+public class RandomEx {
+	public static void main(String[] args) {
+		String[] lesson = {"Java Beg", "JSP", "XML&Java", "EJB"};
+		Random r1 = new Random();
+		int idx = r1.nextInt(lesson.length);
+		System.out.println("선택 과목 : " + lesson[idx]);
+	}
+}
