@@ -1,0 +1,16 @@
+// 예외 처리 실습
+public class ExceptionEx {
+	public static void main(String[] args) {
+		int number = 50;
+		int result = 0;
+		for(int i=0; i<10; i++) {
+			try {
+				result = number / (int)(Math.random() * 5);
+				System.out.println(result);
+			} catch(ArithmeticException e) {
+				// ArithmeticException이 발생하면 수행된다 (산술적 예외)
+				System.out.println("Exception 발생!");
+			}
+		}
+	}
+}
