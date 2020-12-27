@@ -1,0 +1,16 @@
+// Queue 인터페이스 - LinkedList
+import java.util.LinkedList;
+public class QueueEx {
+	public static void main(String[] args) {
+		String[] item = {"소나타","렉스톤","재규어"};
+		LinkedList<String> queue = new LinkedList<String>();
+		for(String n : item) 
+			queue.offer(n); // 마지막에 요소 추가
+		System.out.println("queue의 크기 : " + queue.size());
+		String data = "";
+		while((data = queue.poll()) != null) {
+			System.out.println(data + "삭제");
+			System.out.println("queue의 크기 : " + queue.size());
+		}
+	}
+}
