@@ -1,5 +1,7 @@
 package kg.lee.vo;
 
+// 고객 관리 프로그램 - ArrayList 활용 
+// VO
 public class Customer {
 	// 멤버
 	private String name;

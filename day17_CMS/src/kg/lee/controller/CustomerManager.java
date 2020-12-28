@@ -1,5 +1,4 @@
 package kg.lee.controller;
-
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -7,6 +6,8 @@ import java.util.ArrayList;
 
 import kg.lee.vo.Customer;
 
+// 고객 관리 프로그램 - ArrayList 활용 
+// Controller
 public class CustomerManager {
 	// 멤버
 	private boolean isStop;
