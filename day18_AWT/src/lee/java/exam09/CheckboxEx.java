@@ -1,7 +1,7 @@
 package lee.java.exam09;
-
 import java.awt.*;
 
+// AWT - Checkbox
 public class CheckboxEx extends Frame {
 
 	private Label lab = new Label("좋아하는 과일은?");
