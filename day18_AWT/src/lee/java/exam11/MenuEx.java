@@ -1,6 +1,7 @@
 package lee.java.exam11;
 import java.awt.*;
 
+// AWT - MenuBar & Menu & MenuItem
 // 메뉴와 Panel 활용 예제
 public class MenuEx extends Frame {
 	// [멤버]
