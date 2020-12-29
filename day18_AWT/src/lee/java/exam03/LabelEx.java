@@ -1,7 +1,7 @@
 package lee.java.exam03;
-
 import java.awt.*;
 
+// AWT - Label
 public class LabelEx extends Frame {
 	
 	// ¸â¹ö
