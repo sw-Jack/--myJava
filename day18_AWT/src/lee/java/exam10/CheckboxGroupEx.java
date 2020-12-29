@@ -1,7 +1,7 @@
 package lee.java.exam10;
-
 import java.awt.*;
 
+// AWT - CheckboxGroup
 public class CheckboxGroupEx extends Frame {
 
 	GridLayout gl = new GridLayout(4,1);
