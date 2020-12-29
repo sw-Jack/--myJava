@@ -1,8 +1,8 @@
 package lee.java.exam01;
-
 import java.awt.Button;
 import java.awt.Frame;
 
+// AWT - Frame
 /**
  *	객체를 발생시켜서 프레임을 생성하는 방법
  */
