@@ -1,6 +1,7 @@
 package lee.java.exam06;
-
 import java.awt.*;
+
+//AWT - TextField / TextArea
 public class TextEx extends Frame {
 	
 	private TextField tf = new TextField("Á¦¸ñ : ");
