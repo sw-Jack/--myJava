@@ -1,7 +1,7 @@
 package lee.java.exam08;
-
 import java.awt.*;
 
+// AWT - Choice
 public class ChoiceEx extends Frame {
 
 	private Label lab = new Label("»ýÀÏ");
