@@ -1,7 +1,7 @@
 package lee.java.exam12;
 import java.awt.*;
 
-// Dialog 예제
+// //AWT - Dialog
 public class DialogEx extends Frame {
 	// [멤버]
 	// Dialog 객체 소유자 : this, Dialog Title : "조회서비스", 모달리스(false)
