@@ -1,7 +1,7 @@
 package lee.java.exam07;
-
 import java.awt.*;
 
+// AWT - List
 public class ListEx extends Frame {
 
 	private Label lab = new Label("인원 목록");
