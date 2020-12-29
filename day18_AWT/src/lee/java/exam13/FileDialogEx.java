@@ -2,7 +2,7 @@ package lee.java.exam13;
 import java.awt.FileDialog;
 import java.awt.Frame;
 
-// File Dialog 예제
+// AWT - FileDialog
 public class FileDialogEx extends Frame {
 	// [멤버]
 	FileDialog fileDialog = new FileDialog(this, "저장하기 테스트", FileDialog.SAVE);
