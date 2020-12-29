@@ -1,7 +1,7 @@
 package lee.java.exam04;
-
 import java.awt.*;
 
+// AWT - BorderLayout
 public class BorderEx extends Frame {
 	private static final long serialVersionUID = 1L; // 버전 up 권유
 	// 멤버
