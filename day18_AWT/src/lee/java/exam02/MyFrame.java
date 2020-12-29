@@ -1,6 +1,7 @@
 package lee.java.exam02;
-
 import java.awt.Button;
+
+// AWT - Frame
 import java.awt.Frame;
 /**
  *	Frame 클래스를 상속받아서 만드는 방법
