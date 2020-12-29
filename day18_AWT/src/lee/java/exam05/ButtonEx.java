@@ -1,7 +1,7 @@
 package lee.java.exam05;
-
 import java.awt.*;
 
+// AWT - Button
 public class ButtonEx extends Frame {
 
 	private String[] str = {"7","8","9","4","5","6","1","2","3","#","0","*"};
