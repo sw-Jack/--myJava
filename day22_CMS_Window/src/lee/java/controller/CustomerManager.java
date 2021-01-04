@@ -234,7 +234,7 @@ public class CustomerManager extends Frame implements ActionListener, KeyListene
          
          clrscr();//화면지우기
       }//end 등록
-      if(e.getSource() == dispbt) {
+      if(e.getSource() == dispbt) { // 분석버튼
          // 주민번호 검증을 수행해서 infota에다가 정보를 출력해 줍니다.
       }
       if(e.getSource() == updatebt) {//수정버튼

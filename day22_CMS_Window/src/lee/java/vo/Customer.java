@@ -50,10 +50,6 @@ public class Customer {
 	public void setSex(Boolean sex) {
 		this.sex = sex;
 	}
-	
-	public boolean isSex() {
-		return sex;
-	}
 
 	public String getHobby() {
 		return hobby;
@@ -63,14 +59,16 @@ public class Customer {
 		this.hobby = hobby;
 	}
 
+	public Boolean isSex() {
+		return sex;
+	}
 	// toString() : 해당 클래스를 대표하는 문자열 반환
 	@Override
 	public String toString() {
-		StringBuffer sb = new StringBuffer(" ");
-		sb.append(name);
+		StringBuffer sb = new StringBuffer(name);
 		sb.append("(");
 		sb.append(isSex() ? "남성" : "여성");
 		sb.append(")");
-		return super.toString();
+		return sb.toString();
 	}
 }
