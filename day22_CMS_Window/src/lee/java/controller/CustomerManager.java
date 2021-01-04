@@ -49,6 +49,7 @@ import java.util.*;
 import lee.java.vo.Customer;
 
 // <고객관리 프로그램 on Windows>
+// Controller
 public class CustomerManager extends Frame implements ActionListener, KeyListener, ItemListener{
    
    // [멤버필드]

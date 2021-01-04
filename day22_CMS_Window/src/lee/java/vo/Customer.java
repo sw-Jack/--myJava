@@ -1,7 +1,7 @@
 package lee.java.vo;
-
 import java.io.Serializable;
 
+// Vo
 public class Customer implements Serializable { // 직렬화
 	private static final long serialVersionUID = 1L;
 	// [멤버]
