@@ -35,17 +35,19 @@ public class UsingAWT extends Frame {
 	private TextField tfPhoneFront = new TextField(4);
 	private TextField tfPhoneBack = new TextField(4);
 	// 초이스
-	Choice choicePhone = new Choice();
+	private Choice choicePhone = new Choice();
 	// 체크박스 그룹
-	CheckboxGroup checkboxGroupSex = new CheckboxGroup();
+	private CheckboxGroup checkboxGroupSex = new CheckboxGroup();
 	// 체크박스
-	Checkbox checkboxMan = new Checkbox("남성", checkboxGroupSex, true);
-	Checkbox checkboxWoman = new Checkbox("여성", checkboxGroupSex, false);
-	Checkbox[] checkboxHobby = {new Checkbox("독서"), new Checkbox("영화"),
+	private Checkbox checkboxMan = new Checkbox("남성", checkboxGroupSex, true);
+	private Checkbox checkboxWoman = new Checkbox("여성", checkboxGroupSex, false);
+	// private String[] strHobby = {"독서", "영화", "음악", "게임", "쇼핑"};
+	// private Checkbox[] checkboxHobby = new Checkbox[strHobby.length]; ↓
+	private Checkbox[] checkboxHobby = {new Checkbox("독서"), new Checkbox("영화"),
 			new Checkbox("음악"), new Checkbox("게임"), new Checkbox("쇼핑")};
 	// 버튼
-	String[] str = {"등록", "분석", "수정", "삭제", "지우기"};
-	Button[] bts = new Button[str.length];
+	private String[] str = {"등록", "분석", "수정", "삭제", "지우기"};
+	private Button[] bts = new Button[str.length];
 	//Button btEnroll = new Button("등록");
 	//Button btAnalysis = new Button("분석");
 	//Button btUpdate = new Button("수정");
@@ -62,7 +64,7 @@ public class UsingAWT extends Frame {
 	// 레이블
 	private Label labAnalysisResult = new Label("개인정보분석", Label.CENTER);
 	// 텍스트에리어
-	TextArea textArea = new TextArea();
+	private TextArea textArea = new TextArea();
 	
 	
 	// [생성자]
