@@ -1,6 +1,5 @@
 package lee.java.controller;
 import java.awt.BorderLayout;
-
 import java.awt.Button;
 import java.awt.Checkbox;
 import java.awt.CheckboxGroup;
@@ -45,6 +44,7 @@ import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.io.PrintWriter;
 import java.util.ArrayList;
+import java.util.*;
 
 import lee.java.vo.Customer;
 
@@ -181,11 +181,14 @@ public class CustomerManager extends Frame implements ActionListener, KeyListene
          tfIdNumFront.requestFocus();
          return;
       }
+      
       if(e.getSource() == tfPhoneFront) {
          tfPhoneRear.requestFocus();
          return;
       }
-      if(e.getSource() == btAdd) { // 등록 버튼 
+      
+      // 등록 버튼 
+      if(e.getSource() == btAdd) {
          String name = tfName.getText().trim();
          if(name == null || name.length() == 0) {
             taInfo.setText("\n\t이름은 반드시 입력하셔야 합니다.");
@@ -202,7 +205,7 @@ public class CustomerManager extends Frame implements ActionListener, KeyListene
             tfIdNumRear.setText("");
             tfIdNumFront.requestFocus();
             return;
-         }
+         }      
          
          StringBuffer tel = new StringBuffer(chPhone.getSelectedItem());
          tel.append("-");   tel.append(tfPhoneFront.getText());
@@ -213,8 +216,8 @@ public class CustomerManager extends Frame implements ActionListener, KeyListene
             tfPhoneRear.setText("");
             tfPhoneFront.requestFocus();
             return;
-         }
-         
+         }  
+          
          boolean gender = chMan.getState();
          
          StringBuffer myHobby = new StringBuffer();
@@ -243,11 +246,68 @@ public class CustomerManager extends Frame implements ActionListener, KeyListene
          
          cls(); // 화면 초기화
       } //end 등록
+      
+      // 분석 버튼 (2020년 기준의 계산)
       if(e.getSource() == btAnalysis) {
-         // 주민번호 검증을 수행해서 taInfo에다가 정보를 출력해 줍니다.
-      }
-      if(e.getSource() == btUpdate) { // 수정 버튼
-         
+          StringBuffer idNum = new StringBuffer(tfIdNumFront.getText());
+          idNum.append(tfIdNumRear.getText());
+    	  String[] tempIdNum = new String[13];
+    	  int[] intIdNum = new int[tempIdNum.length];
+    	  for(int i=0; i<tempIdNum.length; i++) {
+    		  tempIdNum[i] = idNum.substring(i,i+1);
+    		  intIdNum[i] = Integer.parseInt(tempIdNum[i]);
+    	  }
+    	  
+    	  float sum = 0; float temp = 0; float total = 0;
+    	  float cre = 2.f;
+    	  for(int i=0; i<intIdNum.length; i++) {
+    		  if(cre == 10.f) cre = 2.f;
+    		  sum += intIdNum[i] * cre;
+    		  cre++;
+    	  } 
+          temp = 11.f * (int)(sum/11.f) + 11.f - sum;
+          total = temp - 10.f * (int)(temp/10.f);
+ 
+          if(total != intIdNum[intIdNum.length-1]){
+              taInfo.setText("\n\t잘못된 주민번호입니다.");
+              return;
+           }
+
+          Customer myCustomer = data.get(listCustomer.getSelectedIndex());
+          
+          int year = 1900;
+          switch(intIdNum[6]){
+             case 3 :
+             case 4 : year = 2000; break;
+             case 9 :
+             case 0 : year = 1800; break;
+             default : year = 1900; break;
+          }
+          year += intIdNum[0]*10 + intIdNum[1];
+          int month = intIdNum[2]*10 + intIdNum[3];
+          int day = intIdNum[4]*10 + intIdNum[5];
+          String where = "";
+          switch(intIdNum[7]){
+          case 0 : where = "서울"; break;
+          case 1 : where = "경기"; break;
+          case 2 : where = "강원"; break;
+          case 3 : where = "충북"; break;
+          case 4 : where = "충남"; break;
+          case 5 : where = "전북"; break;
+          case 6 : where = "전남"; break;
+          case 7 : where = "경북"; break;
+          case 8 : where = "경남"; break;
+          case 9 : where = "제주"; break;
+       }
+          taInfo.setText("\n\t[" + myCustomer.getName() + "] 님의 개인정보 분석결과\n\t-> 생년월일 : " 
+        		  	+ year + "년 " + month + "월 " + day + "일\n\t-> 나    이 : " 
+        		  	+ (Calendar.getInstance().get(Calendar.YEAR) - year) + "세\n\t-> 성    별 : " 
+        		  	+ (intIdNum[6] % 2 == 0 ? "여성" : "남성")
+        		    + "\n\t-> 출생지역 : " + where);
+      } // end 분석
+      
+      // 수정 버튼
+      if(e.getSource() == btUpdate) { 
          Customer myCustomer = data.get(listCustomer.getSelectedIndex());
          
          StringBuffer tel = new StringBuffer(chPhone.getSelectedItem());
@@ -281,14 +341,16 @@ public class CustomerManager extends Frame implements ActionListener, KeyListene
          
          try {
             Thread.sleep(500); // 0.5초간 프로그램 중지
-         }catch(InterruptedException ir) { }
+         } catch(InterruptedException ir) { }
          
          setButton(true);
          setForm(true);
          cls();
          return;
-      } //end 수정
-      if(e.getSource() == btDelete) { // 삭제 버튼
+      } // end 수정
+      
+      // 삭제 버튼
+      if(e.getSource() == btDelete) {
          int index = listCustomer.getSelectedIndex();
          
          taInfo.setText("\n\t성공적으로 삭제 되었습니다.");
@@ -298,34 +360,44 @@ public class CustomerManager extends Frame implements ActionListener, KeyListene
          
          try {
             Thread.sleep(500); // 0.5초간 프로그램 중지
-         }catch(InterruptedException ir) { }
+         } catch(InterruptedException ir) { }
          
          setForm(true);
          setButton(true);
          cls();
          return;
-      } //end 삭제
-      if(e.getSource() == btInit) { // 초기화 버튼
+      } // end 삭제
+      
+      // 초기화 버튼
+      if(e.getSource() == btInit) {
          setForm(true);
          setButton(true);
          cls();
          return;
-      } //end 초기화 버튼
-      if(e.getSource() == versionInfo) { // 버전 정보 (다이얼로그)
+      } // end 초기화
+      
+      // 버전 정보 (다이얼로그)
+      if(e.getSource() == versionInfo) { 
          Point pt = getLocation(); // 현재 창 기준의 (x,y)좌표
          Dimension my = getSize();
          Dimension dsize = dialog.getSize();
          
          dialog.setLocation((int)pt.getX() + my.width/2-dsize.width/2, (int)pt.getY() + my.height/2-dsize.height/2); // 메인 창 가운데로 다이얼로그 창 띄우기
          dialog.setVisible(true);
-      } //end 버전 정보
-      if(e.getSource() == closeFile) { //종료 메뉴
+      } // end 버전 정보
+      
+      // 종료 메뉴
+      if(e.getSource() == closeFile) { 
          System.exit(0);
       } // end 종료 메뉴
-      if(e.getSource() == btConfirm) { // 다이얼로그 내 확인 버튼
+      
+      // 다이얼로그 내 확인 버튼
+      if(e.getSource() == btConfirm) { 
          dialog.setVisible(false);
-      }
-      if(e.getSource() == newFile) { // 새파일
+      } // end 다이얼로그 내 확인 버튼
+      
+      // 새파일
+      if(e.getSource() == newFile) { 
          listCustomer.removeAll();
          data.clear();
          myFile = null;
@@ -333,7 +405,9 @@ public class CustomerManager extends Frame implements ActionListener, KeyListene
          setForm(true);
          cls();
       } // end 새파일
-      if(e.getSource() == openFile) { // 불러오기
+      
+      // 불러오기
+      if(e.getSource() == openFile) {
          fileDialog = new FileDialog(this, "불러오기", FileDialog.LOAD);
          fileDialog.setVisible(true);
          String fileName = fileDialog.getFile();
@@ -344,8 +418,10 @@ public class CustomerManager extends Frame implements ActionListener, KeyListene
          myFile = new File(directory, fileName);
          // dataLoad(); : 하나하나 읽어서 불러오기
          loadData(); // 역직렬화 : 객체 불러오기
-      }//end 불러오기
-      if(e.getSource() == saveFile) { // 저장하기
+      } // end 불러오기
+      
+      // 저장하기
+      if(e.getSource() == saveFile) {
          if(myFile == null) {
             fileDialog = new FileDialog(this, "새 이름으로 저장하기", FileDialog.SAVE);
             fileDialog.setVisible(true);
@@ -359,7 +435,9 @@ public class CustomerManager extends Frame implements ActionListener, KeyListene
          // dataSave(); : 하나하나 저장하기 
          saveData(); // 직렬화 : 객체로 저장하기
       } // end 저장하기
-      if(e.getSource() == saveasFile) { // 새이름으로 저장하기
+      
+      // 새이름으로 저장하기
+      if(e.getSource() == saveasFile) { 
          fileDialog = new FileDialog(this, "새 이름으로 저장하기", FileDialog.SAVE);
          fileDialog.setVisible(true);
          String fileName = fileDialog.getFile();
@@ -372,8 +450,9 @@ public class CustomerManager extends Frame implements ActionListener, KeyListene
          saveData();
       } // end 새이름으로 저장하기
    }
-
-   public void loadData() { // 역직렬화 : 객체 불러오기
+   
+   // 역직렬화 : 객체 불러오기
+   public void loadData() {
 	   FileInputStream fis = null;
 	   ObjectInputStream ois = null;
       
@@ -389,15 +468,15 @@ public class CustomerManager extends Frame implements ActionListener, KeyListene
             listCustomer.add(myCustomer.toString());
             data.add(myCustomer);
          }
-      }catch(EOFException eofe) {
+      } catch(EOFException eofe) {
          taInfo.setText("\n\t성공적으로 데이터를 로딩하였습니다.");
-      }catch(ClassNotFoundException cnfe) {
+      } catch(ClassNotFoundException cnfe) {
          System.err.println("Customer 클래스를 찾을 수 없습니다.");
-      }catch(FileNotFoundException fnfe) {
+      } catch(FileNotFoundException fnfe) {
          System.err.println(myFile.getName() + " 파일이 존재하지 않습니다.");
-      }catch(IOException ioe) {
+      } catch(IOException ioe) {
          ioe.printStackTrace();
-      }finally {
+      } finally {
          try { if(ois != null) ois.close(); }catch(IOException ioe) {}
          try { if(fis != null) fis.close(); }catch(IOException ioe) {}
       }
@@ -411,7 +490,8 @@ public class CustomerManager extends Frame implements ActionListener, KeyListene
       cls();
    }
    
-   public void saveData() { // 직렬화 : 객체로 저장하기
+   // 직렬화 : 객체로 저장하기
+   public void saveData() { 
       FileOutputStream fos = null;
       ObjectOutputStream oos = null;
       
@@ -424,18 +504,18 @@ public class CustomerManager extends Frame implements ActionListener, KeyListene
             oos.writeObject(myCustomer);
          }
          taInfo.setText("\n\t성공적으로 저장되었습니다");
-      }catch(FileNotFoundException fnfe) {
+      } catch(FileNotFoundException fnfe) {
          System.err.println(myFile.getName() + " 파일이 존재하지 않습니다.");
-      }catch(IOException ioe) {
+      } catch(IOException ioe) {
          ioe.printStackTrace();
-      }finally {
+      } finally {
          try { if(oos != null) oos.close(); }catch(IOException ioe) {}
          try { if(fos != null) fos.close(); }catch(IOException ioe) {}
       }
       
       try {
          Thread.sleep(500); // 0.5초간 프로그램 중지
-      }catch(InterruptedException ir) {}
+      } catch(InterruptedException ir) {}
       
       setButton(true);
       setForm(true);
@@ -463,18 +543,18 @@ public class CustomerManager extends Frame implements ActionListener, KeyListene
             data.add(myCustomer);
          }
          taInfo.setText("\n\t성공적으로 데이터를 로딩하였습니다.");
-      }catch(FileNotFoundException fnfe) {
+      } catch(FileNotFoundException fnfe) {
          System.err.println(myFile.getName() + " 파일을 찾을 수 없습니다.");
-      }catch(IOException ioe) {
+      } catch(IOException ioe) {
          ioe.printStackTrace();
-      }finally {
+      } finally {
          try { if(br != null) br.close(); }catch(IOException ioe) {}
          try { if(fr != null) fr.close(); }catch(IOException ioe) {}
       }
       
       try {
          Thread.sleep(500); // 0.5초간 프로그램 중지
-      }catch(InterruptedException ir) {}
+      } catch(InterruptedException ir) {}
       
       setForm(true);
       setButton(true);
@@ -502,11 +582,11 @@ public class CustomerManager extends Frame implements ActionListener, KeyListene
             pw.println(sb.toString());
          }
          taInfo.setText("\n\t성공적으로 저장되었습니다");
-      }catch(FileNotFoundException fnfe) {
+      } catch(FileNotFoundException fnfe) {
          System.err.println(myFile.getName() + " 파일을 찾을 수 없습니다.");
-      }catch(IOException ioe) {
+      } catch(IOException ioe) {
          ioe.printStackTrace();
-      }finally {
+      } finally {
          if(pw != null) pw.close();
          try { if(bw != null) bw.close(); }catch(IOException ioe) {}
          try { if(fw != null) fw.close(); }catch(IOException ioe) {}
@@ -514,7 +594,7 @@ public class CustomerManager extends Frame implements ActionListener, KeyListene
       
       try {
          Thread.sleep(500); // 0.5초간 프로그램 중지
-      }catch(InterruptedException ir) {}
+      } catch(InterruptedException ir) {}
       
       setButton(true);
       setForm(true);
@@ -528,7 +608,9 @@ public class CustomerManager extends Frame implements ActionListener, KeyListene
          tfPhoneFront.requestFocus();
          return;
       }
-      if(e.getSource() == listCustomer)  { // 목록에서 선택
+      
+      // 목록에서 선택
+      if(e.getSource() == listCustomer)  { 
          int index = listCustomer.getSelectedIndex();
          
          Customer myCustomer = data.get(index);
@@ -609,7 +691,7 @@ public class CustomerManager extends Frame implements ActionListener, KeyListene
       menuHelp.add(versionInfo);
    }
    
-   //화면 구성
+   // 화면 구성
    private void buildGUI() {
       setBackground(Color.CYAN);
       add("North", new Label());
