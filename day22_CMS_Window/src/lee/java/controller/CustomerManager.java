@@ -95,7 +95,7 @@ public class CustomerManager extends Frame implements ActionListener, KeyListene
    private Menu menuHelp = new Menu("Help");
       private MenuItem versionInfo = new MenuItem("버전정보");
    
-   //--------------------------------------------------------------------------- 다이어로그
+   //--------------------------------------------------------------------------- 다이얼로그
    private Dialog dialog = new Dialog(this, "버전정보", true);
    
    private Label labVersion = new Label("CustomerManager V1.0", Label.CENTER);
