@@ -1,0 +1,11 @@
+<!DOCTYPE html>
+<html>
+  <title>Calculator</title>
+ </head>
+ <body>
+	<center>
+		<applet code="Calculator.class" width=500 height=200>
+		</applet>
+	</center>
+ </body>
+</html>
