@@ -1,0 +1,12 @@
+<!DOCTYPE html>
+<html>
+ <head>
+  <title>막대그래프</title>
+ </head>
+ <body>
+	<center>
+		<applet code="RunTimeApplet.class" width=400 height=400>
+		</applet>
+	</center>
+ </body>
+</html>
