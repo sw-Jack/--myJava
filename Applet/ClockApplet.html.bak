@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html lang="en">
+ <head>
+  <title>디지털 시계 Applet</title>
+ </head>
+ <body>
+
+		<applet code="ClockApplet.class" width=500 height=300>
+		</applet>
+		<hr>
+		<a href="ClockApplet.java">소스보기</a>
+
+ </body>
+</html>
