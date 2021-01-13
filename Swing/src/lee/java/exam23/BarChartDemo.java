@@ -117,7 +117,7 @@ public class BarChartDemo extends ApplicationFrame {
 	}
 	
 	public static String getDemoDescription() {
-		return "This is a bar chart demo for testing.";
+		return "This is a bar chart demo";
 	}
 	
 	public static void main(String[] args) {
