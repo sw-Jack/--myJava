@@ -7,7 +7,6 @@ public class MultiServerThread extends Thread {
 	private MultiServer multiServer;
 	private ObjectOutputStream oos;
 	private ObjectInputStream ois;
-	
 	public MultiServerThread(MultiServer multiServer) {
 		this.multiServer = multiServer;
 	}
@@ -18,7 +17,6 @@ public class MultiServerThread extends Thread {
 			socket = multiServer.getSocket();
 			oos = new ObjectOutputStream(socket.getOutputStream());
 			ois = new ObjectInputStream(socket.getInputStream());
-			
 			String recMessage = null;
 			while(!isStop) {
 				recMessage = (String)ois.readObject();

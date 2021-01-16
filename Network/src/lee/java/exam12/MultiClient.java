@@ -38,7 +38,7 @@ public class MultiClient implements ActionListener {
 		jPanel2 = new JPanel();
 		jlab1.setBackground(Color.yellow);
 		jlab2.setBackground(Color.green);
-		jTextField.setBackground(Color.pink);
+		jTextArea.setBackground(Color.cyan);
 		
 		jPanel1.setLayout(new BorderLayout());
 		jPanel2.setLayout(new BorderLayout());
@@ -70,7 +70,7 @@ public class MultiClient implements ActionListener {
 			}
 		});
 		
-		jTextField.setEditable(false);
+		jTextArea.setEditable(false);
 		
 		Toolkit toolkit = Toolkit.getDefaultToolkit();
 		Dimension d = toolkit.getScreenSize();
@@ -90,7 +90,7 @@ public class MultiClient implements ActionListener {
 		if(obj == jTextField) {
 			if(msg == null || msg.length() == 0) {
 				JOptionPane.showMessageDialog(jFrame, 
-						"글을 쓰세요", "경고", JOptionPane.WARNING_MESSAGE);
+						"메세지를 입력하세요", "경고", JOptionPane.WARNING_MESSAGE);
 			} else {
 				try {
 					oos.writeObject(id + "#" + msg);
