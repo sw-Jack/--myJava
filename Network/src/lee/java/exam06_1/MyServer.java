@@ -26,7 +26,7 @@ public class MyServer {
          // 안해도 되지만 보통 접속내용을 로그로 남긴다.
          InetAddress client = socket.getInetAddress();
          String clientIp = client.getHostAddress();
-         System.out.println("[" + clientIp + "] 님이 접속함");
+         System.out.println("[" + clientIp + "] 님이 접속함\n");
 
          // 4. 얻어진 소켓으로부터 스트림 추출
          br = new BufferedReader(new InputStreamReader(socket.getInputStream()));
@@ -35,19 +35,21 @@ public class MyServer {
 
          while (true) {
             // 6. 클라이언트 메시지를 받는다.
-            String message = br.readLine();
-            System.out.println("[클라이언트 메세지] " + message);
-
+            String receive = br.readLine();
+            System.out.println("[클라이언트 메세지] " + receive);
+            if(receive.equals("exit")) {
+                System.out.println("클라이언트와의 연결을 종료하겠습니다.");
+                break;
+             }
+            
             // 7. 클라이언트에게 응답메시지를 보낸다.
             System.out.print("전송할 메세지 : ");
-            String reply = keyboard.readLine(); // 클라이언트 입력대기
-            
-            bw.write(reply + "\n"); // 5. 클라이언트가 메시지를 전송
+            String send = keyboard.readLine(); // 클라이언트 입력대기
+            bw.write(send + "\n"); // 5. 클라이언트가 메시지를 전송
             bw.flush();
-            
-            if(message.equals("exit")) {
-               System.out.println("클라이언트와의 연결을 종료하겠습니다.");
-               break;
+            if(send.equals("exit")) {
+                System.out.println("클라이언트와의 연결을 종료하겠습니다.");
+                break;
             }
          }
          System.out.println("서버를 종료합니다.");
