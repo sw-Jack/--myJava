@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.BorderPane?>
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <Pane layoutX="65.0" layoutY="68.0" prefHeight="97.0" prefWidth="470.0">
+         <children>
+            <Text layoutX="95.0" layoutY="52.0" strokeType="OUTSIDE" strokeWidth="0.0" text="&lt; 회원가입 &gt;" textAlignment="CENTER" wrappingWidth="280.12109375">
+               <font>
+                  <Font size="40.0" />
+               </font>
+            </Text>
+         </children>
+      </Pane>
+      <GridPane layoutX="108.0" layoutY="176.0" prefHeight="462.0" prefWidth="410.0">
+        <columnConstraints>
+          <ColumnConstraints hgrow="SOMETIMES" maxWidth="128.0" minWidth="10.0" prefWidth="96.0" />
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="262.0" minWidth="10.0" prefWidth="235.0" />
+          <ColumnConstraints hgrow="SOMETIMES" maxWidth="122.0" minWidth="10.0" prefWidth="67.0" />
+        </columnConstraints>
+        <rowConstraints>
+            <RowConstraints maxHeight="99.0" minHeight="10.0" prefHeight="99.0" vgrow="SOMETIMES" />
+          <RowConstraints maxHeight="99.0" minHeight="10.0" prefHeight="99.0" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="99.0" minHeight="10.0" prefHeight="99.0" vgrow="SOMETIMES" />
+          <RowConstraints maxHeight="99.0" minHeight="10.0" prefHeight="99.0" vgrow="SOMETIMES" />
+          <RowConstraints maxHeight="99.0" minHeight="10.0" prefHeight="99.0" vgrow="SOMETIMES" />
+        </rowConstraints>
+         <children>
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="이름">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </Text>
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="아이디" GridPane.rowIndex="1">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </Text>
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="비밀번호" GridPane.rowIndex="2">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </Text>
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="전화번호" GridPane.rowIndex="3">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </Text>
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="가게코드" GridPane.rowIndex="4">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </Text>
+            <TextField fx:id="tfRegName" GridPane.columnIndex="1" />
+            <TextField fx:id="tfRegId" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+            <TextField fx:id="tfRegPw" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+            <TextField fx:id="tfRegPhoneNum" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+            <TextField fx:id="tfRegStoreCode" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+            <Button fx:id="btnDupCheck" mnemonicParsing="false" text="중복 체크" GridPane.columnIndex="2" GridPane.rowIndex="1" />
+         </children>
+      </GridPane>
+      <HBox alignment="CENTER" layoutX="210.0" layoutY="625.0" prefHeight="100.0" prefWidth="200.0" spacing="15.0">
+         <children>
+            <Button fx:id="btnRegApply" mnemonicParsing="false" text="가입">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Button>
+            <Button fx:id="btnRegCancle" mnemonicParsing="false" text="취소">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Button>
+         </children>
+      </HBox>
+   </children>
+</Pane>
