@@ -1,0 +1,194 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.image.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.BorderPane?>
+
+<TabPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1200.0" tabClosingPolicy="UNAVAILABLE" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.ManagerMainController">
+  <tabs>
+    <Tab text="테이블">
+      <content>
+        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" style="-fx-background-color: #997;">
+               <children>
+                  <TabPane layoutX="121.0" layoutY="88.0" prefHeight="200.0" prefWidth="200.0" tabClosingPolicy="UNAVAILABLE" />
+                  <AnchorPane layoutX="13.0" layoutY="14.0" prefHeight="55.0" prefWidth="1174.0" style="-fx-background-color: #ffffff;">
+                     <children>
+                        <Button fx:id="btnLogout" alignment="CENTER" layoutX="1080.0" layoutY="12.0" mnemonicParsing="false" onAction="#btnLogoutEvent" prefHeight="32.0" prefWidth="83.0" text="로그아웃">
+                           <font>
+                              <Font size="13.0" />
+                           </font>
+                        </Button>
+                        <Button fx:id="btnServerOn" alignment="CENTER" layoutX="988.0" layoutY="12.0" mnemonicParsing="false" onAction="#btnServerOnEvent" prefHeight="32.0" prefWidth="83.0" text="서버 ON">
+                           <font>
+                              <Font size="13.0" />
+                           </font>
+                        </Button>
+                        <Label fx:id="labelManagerId" alignment="CENTER" layoutX="833.0" layoutY="12.0" prefHeight="33.0" prefWidth="155.0">
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                        </Label>
+                        <ImageView fx:id="mainImageView" fitHeight="48.0" fitWidth="93.0" layoutX="14.0" layoutY="4.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../image/felix_main.png" />
+                           </image>
+                        </ImageView>
+                        <Label fx:id="labelCall" alignment="CENTER" layoutX="210.0" layoutY="10.0" prefHeight="35.0" prefWidth="580.0" text="Table 1 호출!!!" textFill="RED">
+                           <font>
+                              <Font size="20.0" />
+                           </font>
+                        </Label>
+                        <Label alignment="CENTER" layoutX="62.0" layoutY="10.0" prefHeight="26.0" prefWidth="101.0" text="MYS">
+                           <font>
+                              <Font size="30.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </AnchorPane>
+                  <AnchorPane fx:id="tablePane" layoutX="13.0" layoutY="88.0" prefHeight="320.0" prefWidth="804.0" style="-fx-background-color: #ffffff;">
+                     <children>
+                        <Label alignment="CENTER" layoutX="319.0" layoutY="14.0" prefHeight="27.0" prefWidth="166.0" text="&lt;테이블&gt;">
+                           <font>
+                              <Font size="16.0" />
+                           </font>
+                        </Label>
+                        <Button layoutX="115.0" layoutY="70.0" mnemonicParsing="false" prefHeight="75.0" prefWidth="75.0" text="T1" />
+                        <Button layoutX="365.0" layoutY="70.0" mnemonicParsing="false" prefHeight="75.0" prefWidth="75.0" text="T2" />
+                        <Button layoutX="615.0" layoutY="70.0" mnemonicParsing="false" prefHeight="75.0" prefWidth="75.0" text="T3" />
+                        <Button layoutX="365.0" layoutY="200.0" mnemonicParsing="false" prefHeight="75.0" prefWidth="75.0" text="T5" />
+                        <Button layoutX="115.0" layoutY="200.0" mnemonicParsing="false" prefHeight="75.0" prefWidth="75.0" text="T4" />
+                        <Button layoutX="615.0" layoutY="200.0" mnemonicParsing="false" prefHeight="75.0" prefWidth="75.0" text="T6" />
+                     </children>
+                  </AnchorPane>
+                  <AnchorPane fx:id="orderListPane" layoutX="13.0" layoutY="425.0" prefHeight="330.0" prefWidth="585.0" style="-fx-background-color: #ffffff;">
+                     <children>
+                        <Label alignment="CENTER" layoutX="210.0" layoutY="14.0" prefHeight="27.0" prefWidth="166.0" text="&lt;주문 내역&gt;">
+                           <font>
+                              <Font size="16.0" />
+                           </font>
+                        </Label>
+                        <ListView fx:id="listViewOrder" layoutX="28.0" layoutY="50.0" prefHeight="260.0" prefWidth="531.0" />
+                     </children></AnchorPane>
+                  <AnchorPane fx:id="chattingPane" layoutX="830.0" layoutY="88.0" prefHeight="320.0" prefWidth="357.0" style="-fx-background-color: #ffffff;">
+                     <children>
+                        <Label alignment="CENTER" layoutX="92.0" layoutY="14.0" prefHeight="17.0" prefWidth="166.0" text="&lt;대화창&gt;">
+                           <font>
+                              <Font size="16.0" />
+                           </font>
+                        </Label>
+                        <VBox layoutX="30.0" layoutY="47.0" prefHeight="259.0" prefWidth="298.0">
+                           <children>
+                              <ScrollPane prefHeight="255.0" prefWidth="275.0">
+                                <content>
+                                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="200.0" prefWidth="200.0">
+                                       <children>
+                                          <TextArea fx:id="taMessage" prefHeight="255.0" prefWidth="285.0" />
+                                       </children>
+                                    </AnchorPane>
+                                </content>
+                              </ScrollPane>
+                              <AnchorPane prefHeight="39.0" prefWidth="275.0">
+                                 <children>
+                                    <TextField fx:id="tfSendMessage" layoutY="7.0" prefHeight="35.0" prefWidth="243.0" promptText="메세지 입력" />
+                                    <Button fx:id="btnSendMessage" layoutX="243.0" layoutY="7.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="55.0" text="입력" />
+                                 </children>
+                              </AnchorPane>
+                           </children>
+                        </VBox>
+                     </children></AnchorPane>
+                  <AnchorPane fx:id="menuPane" layoutX="612.0" layoutY="425.0" prefHeight="330.0" prefWidth="344.0" style="-fx-background-color: #ffffff;">
+                     <children>
+                        <Label alignment="CENTER" layoutX="89.0" layoutY="14.0" prefHeight="27.0" prefWidth="166.0" text="&lt;메뉴&gt;">
+                           <font>
+                              <Font size="16.0" />
+                           </font>
+                        </Label>
+                        <TabPane layoutX="14.0" layoutY="50.0" prefHeight="205.0" prefWidth="316.0" tabClosingPolicy="UNAVAILABLE">
+                          <tabs>
+                            <Tab text="안주">
+                              <content>
+                                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="202.0" prefWidth="234.0">
+                                       <children>
+                                          <ScrollPane layoutX="-7.0" layoutY="-12.0" prefHeight="200.0" prefWidth="325.0" />
+                                       </children>
+                                    </AnchorPane>
+                              </content>
+                            </Tab>
+                            <Tab text="주류">
+                              <content>
+                                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                       <children>
+                                          <ScrollPane layoutY="-24.0" prefHeight="200.0" prefWidth="325.0" />
+                                       </children>
+                                    </AnchorPane>
+                              </content>
+                            </Tab>
+                              <Tab text="음료">
+                                <content>
+                                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                       <children>
+                                          <ScrollPane layoutY="-24.0" prefHeight="200.0" prefWidth="325.0" />
+                                       </children>
+                                    </AnchorPane>
+                                </content>
+                              </Tab>
+                          </tabs>
+                        </TabPane>
+                        <Button fx:id="btnPayment1" alignment="CENTER" layoutX="86.0" layoutY="270.0" mnemonicParsing="false" prefHeight="33.0" prefWidth="172.0" text="선택 주문">
+                           <font>
+                              <Font size="20.0" />
+                           </font>
+                        </Button>
+                     </children>
+                  </AnchorPane>
+                  <AnchorPane fx:id="payPane" layoutX="968.0" layoutY="425.0" prefHeight="330.0" prefWidth="219.0" style="-fx-background-color: #ffffff;">
+                     <children>
+                        <Label alignment="CENTER" layoutX="27.0" layoutY="14.0" prefHeight="27.0" prefWidth="166.0" text="&lt;결제&gt;">
+                           <font>
+                              <Font size="16.0" />
+                           </font>
+                        </Label>
+                        <TextArea layoutX="21.0" layoutY="50.0" prefHeight="205.0" prefWidth="178.0" />
+                        <Label alignment="CENTER" layoutX="30.0" layoutY="60.0" prefHeight="33.0" prefWidth="80.0" text="* 테이블">
+                           <font>
+                              <Font size="13.0" />
+                           </font>
+                        </Label>
+                        <Label alignment="CENTER" layoutX="30.0" layoutY="120.0" prefHeight="33.0" prefWidth="110.0" text="* 총 주문 금액">
+                           <font>
+                              <Font size="13.0" />
+                           </font>
+                        </Label>
+                        <TextField fx:id="tfTable" layoutX="50.0" layoutY="90.0" prefHeight="20.0" prefWidth="110.0" />
+                        <TextField fx:id="tfTotalOrder" layoutX="50.0" layoutY="150.0" prefHeight="20.0" prefWidth="110.0" />
+                        <Button fx:id="btnPayment" alignment="CENTER" layoutX="24.0" layoutY="270.0" mnemonicParsing="false" prefHeight="33.0" prefWidth="172.0" text="결제">
+                           <font>
+                              <Font size="20.0" />
+                           </font>
+                        </Button>
+                        <Label alignment="CENTER" layoutX="30.0" layoutY="180.0" prefHeight="33.0" prefWidth="110.0" text="* 총 결제 금액">
+                           <font>
+                              <Font size="13.0" />
+                           </font>
+                        </Label>
+                        <TextField fx:id="tfTotalPayment" layoutX="50.0" layoutY="210.0" prefHeight="20.0" prefWidth="110.0" />
+                     </children>
+                  </AnchorPane>
+               </children></AnchorPane>
+      </content>
+    </Tab>
+    <Tab text="메뉴 관리">
+      <content>
+        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+      </content>
+    </Tab>
+      <Tab text="매출 관리">
+        <content>
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+        </content>
+      </Tab>
+  </tabs>
+</TabPane>
