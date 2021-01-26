@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.effect.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.BorderPane?>
+
+<BorderPane prefHeight="400.0" prefWidth="520.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.LoginController">
+   <left>
+      <AnchorPane prefHeight="407.0" prefWidth="228.0" style="-fx-background-color: #997;" BorderPane.alignment="CENTER">
+         <children>
+            <ImageView fx:id="brandingImageView" fitHeight="242.0" fitWidth="195.0" layoutX="17.0" layoutY="74.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../image/felix.jpg" />
+               </image>
+            </ImageView>
+         </children>
+      </AnchorPane>
+   </left>
+   <right>
+      <AnchorPane prefHeight="400.0" prefWidth="332.0" style="-fx-background-color: #ffffff;" BorderPane.alignment="CENTER">
+         <children>
+            <ImageView fx:id="lockImageView" fitHeight="53.0" fitWidth="57.0" layoutX="143.0" layoutY="52.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../image/lock.jpg" />
+               </image>
+            </ImageView>
+            <Label layoutX="37.0" layoutY="139.0" text="아이디">
+               <font>
+                  <Font size="13.0" />
+               </font>
+            </Label>
+            <Label layoutX="37.0" layoutY="182.0" text="비밀번호">
+               <font>
+                  <Font size="13.0" />
+               </font>
+            </Label>
+            <TextField fx:id="userInputId" layoutX="124.0" layoutY="136.0" prefHeight="26.0" prefWidth="173.0" promptText="UserId" />
+            <TextField fx:id="userInputPw" layoutX="124.0" layoutY="179.0" prefHeight="26.0" prefWidth="173.0" promptText="Password" />
+            <Button fx:id="btnLogin" alignment="CENTER" layoutX="31.0" layoutY="260.0" mnemonicParsing="false" onAction="#btnLoginEvent" prefHeight="30.0" prefWidth="270.0" style="-fx-background-color: #997;" text="로그인" textFill="WHITE">
+               <font>
+                  <Font size="13.0" />
+               </font></Button>
+            <Button fx:id="btnRegister" alignment="CENTER" layoutX="31.0" layoutY="300.0" mnemonicParsing="false" onAction="#btnRegisterEvent" prefHeight="30.0" prefWidth="270.0" style="-fx-background-color: #997;" text="회원가입" textFill="WHITE">
+               <font>
+                  <Font size="13.0" />
+               </font>
+            </Button>
+            <Label fx:id="labelLoginMessage" alignment="CENTER" layoutX="9.0" layoutY="214.0" prefHeight="22.0" prefWidth="315.0" textFill="RED">
+               <font>
+                  <Font size="13.0" />
+               </font>
+            </Label>
+            <Button fx:id="btnCancle" alignment="CENTER" layoutX="31.0" layoutY="338.0" mnemonicParsing="false" onAction="#btnCancleEvent" prefHeight="30.0" prefWidth="270.0" style="-fx-background-color: #997;" text="종료" textFill="WHITE">
+               <font>
+                  <Font size="13.0" />
+               </font>
+            </Button>
+         </children>
+      </AnchorPane>
+   </right>
+</BorderPane>
