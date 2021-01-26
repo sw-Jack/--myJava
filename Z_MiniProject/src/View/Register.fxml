@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.shape.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.BorderPane?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="617.0" prefWidth="860.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.RegisterController">
+   <children>
+      <AnchorPane prefHeight="617.0" prefWidth="352.0" style="-fx-background-color: #997;">
+         <children>
+            <ImageView fx:id="regImageView" fitHeight="402.0" fitWidth="300.0" layoutX="22.0" layoutY="94.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../image/felix_register.jpg" />
+               </image>
+            </ImageView>
+            <Label alignment="CENTER" contentDisplay="CENTER" layoutX="22.0" layoutY="384.0" prefHeight="32.0" prefWidth="300.0" text="User Registration" textFill="WHITE">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </Label>
+         </children>
+      </AnchorPane>
+      <Label layoutX="416.0" layoutY="51.0" prefHeight="16.0" prefWidth="336.0" text="이름">
+         <font>
+            <Font size="13.0" />
+         </font>
+      </Label>
+      <TextField fx:id="tfName" layoutX="414.0" layoutY="77.0" prefHeight="25.0" prefWidth="336.0" promptText="Username" />
+      <Label layoutX="416.0" layoutY="121.0" prefHeight="16.0" prefWidth="336.0" text="아이디">
+         <font>
+            <Font size="13.0" />
+         </font>
+      </Label>
+      <TextField fx:id="tfId" layoutX="416.0" layoutY="146.0" prefHeight="25.0" prefWidth="336.0" promptText="UserId" />
+      <TextField fx:id="tfPw" layoutX="416.0" layoutY="216.0" prefHeight="25.0" prefWidth="336.0" promptText="Password" />
+      <Label layoutX="416.0" layoutY="191.0" prefHeight="16.0" prefWidth="336.0" text="비밀번호">
+         <font>
+            <Font size="13.0" />
+         </font>
+      </Label>
+      <TextField fx:id="tfPhoneNum" layoutX="416.0" layoutY="356.0" prefHeight="25.0" prefWidth="336.0" promptText="Phone " />
+      <Label layoutX="416.0" layoutY="331.0" prefHeight="16.0" prefWidth="336.0" text="전화번호">
+         <font>
+            <Font size="13.0" />
+         </font>
+      </Label>
+      <Label layoutX="416.0" layoutY="401.0" prefHeight="16.0" prefWidth="336.0" text="가게코드">
+         <font>
+            <Font size="13.0" />
+         </font>
+      </Label>
+      <TextField fx:id="tfStoreCode" layoutX="416.0" layoutY="426.0" prefHeight="25.0" prefWidth="336.0" promptText="StoreCode" />
+      <Button fx:id="btnIdDupCheck" alignment="CENTER" layoutX="752.0" layoutY="146.0" mnemonicParsing="false" onAction="#btnIdDupCheckEvent" prefHeight="25.0" prefWidth="72.0" text="중복 체크">
+         <padding>
+            <Insets bottom="3.0" left="3.0" right="3.0" top="3.0" />
+         </padding>
+      </Button>
+      <Button fx:id="btnRegApply" alignment="CENTER" layoutX="416.0" layoutY="496.0" mnemonicParsing="false" onAction="#btnRegApplyEvent" prefHeight="32.0" prefWidth="336.0" style="-fx-background-color: #997;" text="회원가입" textFill="WHITE">
+         <font>
+            <Font size="13.0" />
+         </font>
+         <padding>
+            <Insets bottom="3.0" left="3.0" right="3.0" top="3.0" />
+         </padding>
+      </Button>
+      <Button fx:id="btnRegCancle" alignment="CENTER" layoutX="416.0" layoutY="540.0" mnemonicParsing="false" onAction="#btnRegCancleEvent" prefHeight="32.0" prefWidth="336.0" style="-fx-background-color: #997;" text="취소" textFill="WHITE">
+         <font>
+            <Font size="13.0" />
+         </font>
+         <padding>
+            <Insets bottom="3.0" left="3.0" right="3.0" top="3.0" />
+         </padding>
+      </Button>
+      <Label layoutX="416.0" layoutY="261.0" prefHeight="16.0" prefWidth="336.0" text="비밀번호 확인">
+         <font>
+            <Font size="13.0" />
+         </font>
+      </Label>
+      <TextField fx:id="tfConfirmPw" layoutX="416.0" layoutY="286.0" prefHeight="25.0" prefWidth="336.0" promptText="Confirm Password" />
+      <Label fx:id="labelConfirmPw" alignment="CENTER" layoutX="517.0" layoutY="262.0" prefHeight="15.0" prefWidth="234.0" textFill="RED" />
+   </children>
+</AnchorPane>
